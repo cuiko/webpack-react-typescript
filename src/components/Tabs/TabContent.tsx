@@ -1,6 +1,5 @@
 import React from 'react'
 import classnames from 'classnames'
-import { TabPanelP } from './TabPanel'
 
 export interface TabContentP {
   classPrefix: string
@@ -9,11 +8,7 @@ export interface TabContentP {
 }
 
 const TabContent: React.FC<TabContentP> = (props) => {
-  const {
-    classPrefix,
-    activeIndex,
-    panels
-  } = props
+  const { classPrefix, activeIndex, panels } = props
 
   const getTabPanels = () => {
     return React.Children.map(panels, (child) => {
@@ -26,7 +21,7 @@ const TabContent: React.FC<TabContentP> = (props) => {
         classPrefix,
         isActive,
         children: child.props.children,
-        key: `tab-panel-${order}`
+        key: `tab-panel-${order}`,
       })
     })
   }
@@ -35,11 +30,7 @@ const TabContent: React.FC<TabContentP> = (props) => {
     [`${classPrefix}-content`]: true,
   })
 
-  return (
-    <div className={classes}>
-      {getTabPanels()}
-    </div>
-  )
+  return <div className={classes}>{getTabPanels()}</div>
 }
 
 export default TabContent

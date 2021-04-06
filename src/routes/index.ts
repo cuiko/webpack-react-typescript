@@ -15,7 +15,7 @@ const routes: Route[] = [
   {
     path: '/User',
     compontent: User,
-  }
+  },
 ]
 
 export default routes

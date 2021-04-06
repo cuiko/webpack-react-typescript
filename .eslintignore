@@ -1,0 +1,6 @@
+*.d.ts
+node_modules
+dist
+src/libs/*
+src/components/* src/mock/*
+*.js

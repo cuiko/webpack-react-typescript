@@ -1,5 +1,3 @@
 function noop() {}
 
-export {
-  noop,
-}
+export { noop }

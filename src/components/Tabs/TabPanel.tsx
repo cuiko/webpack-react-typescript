@@ -16,15 +16,11 @@ const TabPanel: React.FC<TabPanelP> = (props) => {
   const classes = classnames({
     className,
     [`${classPrefix}-panel`]: true,
-    [`${classPrefix}-active`]: isActive
+    [`${classPrefix}-active`]: isActive,
   })
 
   return (
-    <div
-      role="tab panel" 
-      className={classes}
-      aria-hidden={!isActive}
-    >
+    <div role="tab panel" className={classes} aria-hidden={!isActive}>
       {children}
     </div>
   )

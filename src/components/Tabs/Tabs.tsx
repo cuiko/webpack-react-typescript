@@ -1,10 +1,7 @@
-
 import React, { useState, useEffect } from 'react'
 import './styles.scss'
 import classnames from 'classnames'
-import {
-  noop,
-} from '@/packages/utils/index'
+import { noop } from '@/packages/utils/index'
 
 import TabPanel from './TabPanel'
 import TabNav from './TabNav'
@@ -15,12 +12,7 @@ export interface TabsP {
   activeIndex?: number
   classPrefix?: string
   className?: string
-  onchange?: (
-    indexInfo: {
-      activeIndex: number
-      prevIndex: number
-    }
-  ) => void
+  onchange?: (indexInfo: { activeIndex: number; prevIndex: number }) => void
 }
 export interface TabsS {
   activeIndex: number
@@ -32,12 +24,7 @@ interface TabsI extends React.FC<TabsP> {
 }
 
 const Tabs: TabsI = (props) => {
-  const {
-    classPrefix = 'tabs',
-    onchange = noop,
-    children,
-    className,
-  } = props
+  const { classPrefix = 'tabs', onchange = noop, children, className } = props
 
   const [activeIndex, setActiveIndex] = useState(0)
   // init
@@ -59,10 +46,7 @@ const Tabs: TabsI = (props) => {
   const [prevIndex, setPrevIndex] = useState(activeIndex)
 
   const handleTabClick = (ai: number) => {
-    if (
-      activeIndex !== ai &&
-      'defaultActiveIndex' in props
-    ) {
+    if (activeIndex !== ai && 'defaultActiveIndex' in props) {
       setActiveIndex(ai)
       setPrevIndex(activeIndex)
     }
@@ -83,16 +67,10 @@ const Tabs: TabsI = (props) => {
   )
 
   const renderTabContent = () => (
-    <TabContent
-      classPrefix={classPrefix}
-      activeIndex={activeIndex}
-      panels={children}
-    />
+    <TabContent classPrefix={classPrefix} activeIndex={activeIndex} panels={children} />
   )
 
-  const classes = classnames(
-    className,
-  )
+  const classes = classnames(className)
 
   return (
     <div className={classes}>

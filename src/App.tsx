@@ -5,11 +5,9 @@ import './App.scss'
 
 const App: React.FC = () => (
   <Router>
-    {
-      routes.map((route, i) => (
-        <Route key={i} exact={route.exact} path={route.path} component={route.compontent} />
-      ))
-    }
+    {routes.map((route, i) => (
+      <Route key={i} exact={route.exact} path={route.path} component={route.compontent} />
+    ))}
     <Redirect to="/Home" from="/" />
   </Router>
 )

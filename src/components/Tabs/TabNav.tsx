@@ -4,7 +4,7 @@ import { noop } from '@/packages/utils/index'
 
 export interface TabNavP {
   classPrefix: string
-  panels: any,
+  panels: any
   activeIndex: number
   onTabClick: (index: number) => void
 }
@@ -12,9 +12,6 @@ export interface TabNavP {
 export default class TabNav extends React.Component<TabNavP> {
   static defaultProps = {
     onTabClick: noop,
-  }
-  constructor(props: TabNavP) {
-    super(props)
   }
 
   getTabs() {
@@ -34,7 +31,7 @@ export default class TabNav extends React.Component<TabNavP> {
       let events = {}
       if (!child.props.disabled) {
         events = {
-          onClick: this.props.onTabClick.bind(this, order)
+          onClick: this.props.onTabClick.bind(this, order),
         }
       }
 
@@ -47,7 +44,7 @@ export default class TabNav extends React.Component<TabNavP> {
 
       return (
         <li
-          role="tab" 
+          role="tab"
           aria-selected={activeIndex === order ? 'true' : 'false'}
           aria-disabled={child.props.disabled ? 'true' : 'false'}
           {...events}
@@ -65,17 +62,15 @@ export default class TabNav extends React.Component<TabNavP> {
     const { classPrefix } = this.props
 
     const rootClasses = classnames({
-      [`${classPrefix}-bar`]: true
+      [`${classPrefix}-bar`]: true,
     })
     const navClasses = classnames({
-      [`${classPrefix}-nav`]: true
+      [`${classPrefix}-nav`]: true,
     })
 
     return (
       <div className={rootClasses} role="tab nav">
-        <ul className={navClasses}>
-          {this.getTabs()}
-        </ul>
+        <ul className={navClasses}>{this.getTabs()}</ul>
       </div>
     )
   }
