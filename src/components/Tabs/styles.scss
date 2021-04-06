@@ -1,0 +1,31 @@
+$tab-prefix: 'tabs';
+
+.#{$tab-prefix} {
+  &-nav {
+    &::after,
+    &::before {
+      display: table;
+      content: '';
+    }
+    &::after {
+      clear: both;
+    }
+  }
+  &-nav > &-tab {
+    float: left; 
+    margin-right: 24px;
+    padding: 8px 20px;
+  }
+  &-nav > &-active {
+    color: red;
+  }
+  &-nav > &-disabled {
+    color: grey;
+  }
+  &-content &-panel {
+    display: none;
+  }
+  &-content &-active {
+    display: block;
+  }
+}

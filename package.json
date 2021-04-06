@@ -1,0 +1,51 @@
+{
+  "name": "react-ts-webpack",
+  "version": "1.0.0",
+  "description": "based on react + ts + webpack",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "keywords": [
+    "react.js",
+    "typescript",
+    "webpack"
+  ],
+  "author": "cuiko",
+  "license": "ISC",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@types/classnames": "^2.2.11",
+    "@types/jest": "^26.0.22",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-router-dom": "^5.1.7",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^5.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "jest": "^26.6.3",
+    "less": "^4.1.1",
+    "less-loader": "^8.0.0",
+    "mini-css-extract-plugin": "^1.4.0",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^11.0.1",
+    "source-map-loader": "^2.0.1",
+    "ts-jest": "^26.5.4",
+    "ts-loader": "^8.1.0",
+    "typescript": "^4.2.3",
+    "webpack": "^5.28.0",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "classnames": "^2.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
+  }
+}
