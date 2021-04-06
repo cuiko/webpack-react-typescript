@@ -42,10 +42,10 @@ const Tabs: TabsI = (props) => {
   const [activeIndex, setActiveIndex] = useState(0)
   // init
   useEffect(() => {
-    if ('activeIndex' in props) {
-      setActiveIndex(props.activeIndex!)
-    } else if ('defaultActiveIndex' in props) {
+    if ('defaultActiveIndex' in props) {
       setActiveIndex(props.defaultActiveIndex!)
+    } else if ('activeIndex' in props) {
+      setActiveIndex(props.activeIndex!)
     }
   }, [])
   // listen props
@@ -63,8 +63,8 @@ const Tabs: TabsI = (props) => {
       activeIndex !== ai &&
       'defaultActiveIndex' in props
     ) {
-      setActiveIndex(ai)
       setPrevIndex(activeIndex)
+      setActiveIndex(ai)
     }
 
     onchange({

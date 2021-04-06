@@ -1,25 +1,23 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import classnames from 'classnames'
 import { noop } from '@/packages/utils/index'
 
 export interface TabNavP {
   classPrefix: string
-  panels: any,
+  panels: any
   activeIndex: number
   onTabClick: (index: number) => void
 }
 
-export default class TabNav extends React.Component<TabNavP> {
-  static defaultProps = {
-    onTabClick: noop,
-  }
-  constructor(props: TabNavP) {
-    super(props)
-  }
+const TabNav: React.FC<TabNavP> = (props) => {
+  const {
+    classPrefix,
+    onTabClick = noop,
+    panels,
+    activeIndex,
+  } = props
 
-  getTabs() {
-    const { panels, classPrefix, activeIndex } = this.props
-
+  const getTabs = () => {
     return React.Children.map(panels, (child) => {
       if (!child) return
 
@@ -34,15 +32,16 @@ export default class TabNav extends React.Component<TabNavP> {
       let events = {}
       if (!child.props.disabled) {
         events = {
-          onClick: this.props.onTabClick.bind(this, order)
+          onClick: onTabClick.bind(null, order)
         }
       }
 
+      const activeTabRef = useRef()
       const ref: {
-        ref?: string
+        ref?: React.MutableRefObject<any>
       } = {}
       if (activeIndex === order) {
-        ref.ref = 'activeTab'
+        ref.ref = activeTabRef
       }
 
       return (
@@ -61,22 +60,19 @@ export default class TabNav extends React.Component<TabNavP> {
     })
   }
 
-  render() {
-    const { classPrefix } = this.props
+  const rootClasses = classnames({
+    [`${classPrefix}-bar`]: true
+  })
+  const navClasses = classnames({
+    [`${classPrefix}-nav`]: true
+  })
 
-    const rootClasses = classnames({
-      [`${classPrefix}-bar`]: true
-    })
-    const navClasses = classnames({
-      [`${classPrefix}-nav`]: true
-    })
-
-    return (
-      <div className={rootClasses} role="tab nav">
-        <ul className={navClasses}>
-          {this.getTabs()}
-        </ul>
-      </div>
-    )
-  }
+  return (
+    <div className={rootClasses} role="tab nav">
+      <ul className={navClasses}>
+        {getTabs()}
+      </ul>
+    </div>
+  )
 }
+export default TabNav
