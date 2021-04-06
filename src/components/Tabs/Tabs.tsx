@@ -29,10 +29,10 @@ const Tabs: TabsI = (props) => {
   const [activeIndex, setActiveIndex] = useState(0)
   // init
   useEffect(() => {
-    if ('activeIndex' in props) {
-      setActiveIndex(props.activeIndex!)
-    } else if ('defaultActiveIndex' in props) {
+    if ('defaultActiveIndex' in props) {
       setActiveIndex(props.defaultActiveIndex!)
+    } else if ('activeIndex' in props) {
+      setActiveIndex(props.activeIndex!)
     }
   }, [])
   // listen props
@@ -46,9 +46,12 @@ const Tabs: TabsI = (props) => {
   const [prevIndex, setPrevIndex] = useState(activeIndex)
 
   const handleTabClick = (ai: number) => {
-    if (activeIndex !== ai && 'defaultActiveIndex' in props) {
-      setActiveIndex(ai)
+    if (
+      activeIndex !== ai &&
+      'defaultActiveIndex' in props
+    ) {
       setPrevIndex(activeIndex)
+      setActiveIndex(ai)
     }
 
     onchange({
