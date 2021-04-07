@@ -1,7 +1,6 @@
 import React from 'react'
 import Navs from '@/components/Navs/Navs'
 import Tabs from '@/components/Tabs/Tabs'
-import { __RouterContext } from 'react-router'
 const {
   Panel
 } = Tabs
