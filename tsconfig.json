@@ -11,13 +11,12 @@
     "removeComments": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "types": [
+      "./src/typings"
+    ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "./src/**/*"
-  ]
+  "include": ["./src/**/*"]
 }
