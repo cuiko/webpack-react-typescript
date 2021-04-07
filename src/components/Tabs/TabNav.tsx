@@ -32,7 +32,7 @@ const TabNav: React.FC<TabNavP> = (props) => {
       let events = {}
       if (!child.props.disabled) {
         events = {
-          onClick: onTabClick.bind(null, order)
+          onClick: onTabClick.bind(null, order),
         }
       }
 
@@ -61,10 +61,10 @@ const TabNav: React.FC<TabNavP> = (props) => {
   }
 
   const rootClasses = classnames({
-    [`${classPrefix}-bar`]: true
+    [`${classPrefix}-bar`]: true,
   })
   const navClasses = classnames({
-    [`${classPrefix}-nav`]: true
+    [`${classPrefix}-nav`]: true,
   })
 
   return (

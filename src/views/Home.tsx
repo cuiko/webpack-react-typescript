@@ -3,14 +3,12 @@ import Navs from '@/components/Navs/Navs'
 import Tabs from '@/components/Tabs/Tabs'
 const { Panel } = Tabs
 
-interface HomeP {}
-
 interface HomeS {
   activeIndex: number
 }
 
-export default class Home extends React.Component<HomeP, HomeS> {
-  constructor(props: HomeP) {
+export default class Home extends React.Component<_, HomeS> {
+  constructor(props: _) {
     super(props)
 
     this.state = {

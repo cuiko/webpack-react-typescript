@@ -11,6 +11,9 @@
     "removeComments": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "types": [
+      "./src/typings"
+    ],
     "paths": {
       "@/*": ["./src/*"]
     }
